@@ -1,0 +1,11 @@
+#!/bin/sh
+
+node_modules () {
+  npm install
+}
+babel () {
+  npm link @babel/code-frame
+}
+
+node_modules
+babel

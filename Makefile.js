@@ -519,47 +519,47 @@ target.all = function() {
     target.test();
 };
 
-target.lint = function() {
-    let errors = 0,
-        lastReturn;
+// target.lint = function() {
+//     let errors = 0,
+//         lastReturn;
 
-    echo("Validating Makefile.js");
-    lastReturn = exec(`${ESLINT} ${MAKEFILE}`);
-    if (lastReturn.code !== 0) {
-        errors++;
-    }
+//     echo("Validating Makefile.js");
+//     lastReturn = exec(`${ESLINT} ${MAKEFILE}`);
+//     if (lastReturn.code !== 0) {
+//         errors++;
+//     }
 
-    echo("Validating .eslintrc.js");
-    lastReturn = exec(`${ESLINT} .eslintrc.js`);
-    if (lastReturn.code !== 0) {
-        errors++;
-    }
+//     echo("Validating .eslintrc.js");
+//     lastReturn = exec(`${ESLINT} .eslintrc.js`);
+//     if (lastReturn.code !== 0) {
+//         errors++;
+//     }
 
-    echo("Validating JSON Files");
-    lodash.forEach(JSON_FILES, validateJsonFile);
+//     echo("Validating JSON Files");
+//     lodash.forEach(JSON_FILES, validateJsonFile);
 
-    echo("Validating Markdown Files");
-    lastReturn = lintMarkdown(MARKDOWN_FILES_ARRAY);
-    if (lastReturn.code !== 0) {
-        errors++;
-    }
+//     echo("Validating Markdown Files");
+//     lastReturn = lintMarkdown(MARKDOWN_FILES_ARRAY);
+//     if (lastReturn.code !== 0) {
+//         errors++;
+//     }
 
-    echo("Validating JavaScript files");
-    lastReturn = exec(`${ESLINT} ${JS_FILES}`);
-    if (lastReturn.code !== 0) {
-        errors++;
-    }
+//     echo("Validating JavaScript files");
+//     lastReturn = exec(`${ESLINT} ${JS_FILES}`);
+//     if (lastReturn.code !== 0) {
+//         errors++;
+//     }
 
-    echo("Validating JavaScript test files");
-    lastReturn = exec(`${ESLINT} "tests/**/*.js"`);
-    if (lastReturn.code !== 0) {
-        errors++;
-    }
+//     echo("Validating JavaScript test files");
+//     lastReturn = exec(`${ESLINT} "tests/**/*.js"`);
+//     if (lastReturn.code !== 0) {
+//         errors++;
+//     }
 
-    if (errors) {
-        exit(1);
-    }
-};
+//     if (errors) {
+//         exit(1);
+//     }
+// };
 
 target.fuzz = function() {
     const fuzzerRunner = require("./tools/fuzzer-runner");
@@ -598,7 +598,7 @@ target.fuzz = function() {
 };
 
 target.test = function() {
-    target.lint();
+    // target.lint();
     target.checkRuleFiles();
     let errors = 0,
         lastReturn;
